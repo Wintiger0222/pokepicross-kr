@@ -21,6 +21,7 @@ KOR_FONT_SIZE EQU 8
 .org 0x290C
 	db 0x03;space fix	
 
+;------------------title OAM FIX
 ;base:5a5f
 ;위치: 653c
 ;09번 뱅크에서 오프셋으로 검색 가능?
@@ -63,10 +64,7 @@ db 0x20, 0x18, 0x2A, 0x11;확정
 ; db 0x10, 0x08, 0x3C, 0x02
 db 0xFF
 
-;관련루틴: 
-;----------------------graphisc
-
-
+;----------------------graphics install
 .org 0x1A48E0+0x0000;상록숲
 .incbin "graphics/lv1.png.bin"
 .org 0x1A48E0+0x0800
@@ -173,9 +171,7 @@ db 0xFF
 .org 0x4000*(0x5B-1)+0x7C00
 .incbin "graphics/titlegb.map"
 
-;--------------------------
-
-
+;--------------------------PokeDex hack
 .org 0x7D945
 ; .org 0x4000*(0x1F-1)+0x5945
 db 0x5F, 0x5F, 0x5F, 0x5F, 0x5F, 0x00, 0x01, 0x02, 0x03, 0x04
@@ -737,7 +733,7 @@ dw 0x00FFFF00,0x00FFFF00,0x00FFFF00,0x00FFFF00
 dw 0x00FFFF00,0x00FFFF00,0x00FFFF00,0x00FFFF00
 dw 0x00FFFF00,0x00FFFF00,0x00FFFF00,0x00FFFF00
 dw 0x00FFFF00,0x00FFFF00,0x00FFFF00,0x00FFFF00
-
+;for gb mode...
 .org 0x192500
 dw 0x000000FF,0x000000FF,0x000000FF,0x000000FF
 dw 0x000000FF,0x000000FF,0x000000FF,0x000000FF
@@ -876,7 +872,7 @@ dw 0x000000FF,0x000000FF,0x000000FF,0x000000FF
 .incbin "font/koreanfont_a.bin"
 
 
-
+;another font
 .org 0x4000*(0x2a-1)+0x4000
 .incbin "font/koreanfont_2a.bin"
 .org 0x4000*(0x2b-1)+0x4000
@@ -1401,7 +1397,7 @@ db 0xD1      		; ROM2:4CA1 D1               pop  de;갯수 맞추기
 db 0x3E, KOR_FONT_SIZE-1       ; ROM0:3215 3E 10            ld a, 10
 db 0xC3, 0xA7, 0x4C ; ROM2:4C80 C3 A7 4C         jp   4CA7
 
-
+;----------------------- Dialogue Insert
 .org 0x415c
 db Dialogue_0%0x100
 .org 0x4161
