@@ -8,7 +8,7 @@ This is a Korean translation of Pokemon Picross for Gameboy Color.
  * [rgbds](https://github.com/gbdev/rgbds)
  
 ### base file
- * A legally obtained ROM of Pokemon Picross
+ * A legally obtained ROM of Pokemon Picross ~~but how?~~
   * rename to POKEPICROSS.gbc and put at root
 
 ## Realease
